@@ -1,183 +1,135 @@
-:root {
-  --mobile: 375px;
-  --desktop: 1440px;
+:root{
+ --mobileWidth: 375px;
+ --cardWidth: 330px;
+ --cardHeight: 550px;
+ /*    primary   */
+ --softBlue: hsl(215, 51%, 70%);
+ --cyan: hsl(178, 100%, 50%, 0.5);
+ --cyanHeader: hsl(178, 100%, 50%);
 
-  /* For Summary color  */
-  --lightRed: hsl(0, 100%, 67%);
-  --orangeyYellow: hsl(39, 100%, 56%);
-  --greenTeal: hsl(166, 100%, 37%);
-  --cobaltBlue: hsl(234, 85%, 45%);
-
-  /*     Gradients   */
-  --lightSlateBlue: hsl(252, 100%, 67%);
-  --lightRoyalBlue: hsl(241, 81%, 54%);
-  /*   For Circle   */
-  --violetBlue: hsla(256, 72%, 46%, 1);
-  --persianBlue: hsla(241, 72%, 46%, 0);
-
-  /*     Natural     */
-  --white: hsl(0, 0%, 100%);
-  --paleBlue: hsl(221, 100%, 96%, 0.7);
-  --lightLavender: hsl(241, 100%, 89%);
-  --lightLavenderScore: hsl(241, 100%, 89%, 0.4);
-  --darkGrayBlue: hsl(224, 30%, 27%);
-  --darkGrayBlueScore: hsl(224, 30%, 27%, 0.5);
-  --font-style: 'Hanken Grotesk', sans-serif;
+/*    Neutral    */
+ --veryDarkBlueMainBG: hsl(217, 54%, 11%);
+ --veryDarkBlueCardBG: hsl(216, 50%, 16%);
+ --veryDarkBlueline: hsl(215, 32%, 27%);
+ --white: hsl(0, 0%, 100%);
+ --font-style: 'Outfit', sans-serif;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
-
-body {
-  font-family: var(--font-style);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+body{
+ font-family: var(--font-style);
 }
-
-.main-card-body {
-  display: flex;
-  flex-direction: column;
-  max-width: var(--mobile);
-  cursor: default;
+.card-container{
+ width: var(--mobileWidth);
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: var(--veryDarkBlueMainBG);
 }
-
-.card-header {
-  width: 100%;
-  background-image: linear-gradient(var(--lightSlateBlue), var(--lightRoyalBlue));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 0 25px 25px;
+.card{
+ max-width: var(--cardWidth);
+ max-height: --cardHeight;
+ padding: 20px;
+ background-color: var(--veryDarkBlueCardBG);
+ border-radius: 20px;
 }
-
-.card-your-result {
-  margin: 20px;
-  color: var(--lightLavender);
-  font-size: 16px;
+.card-img-container{
+ position: relative;
+ width: 100%;
+ height: 280px;
+ margin-block-end: 30px;
+ cursor: pointer;
 }
-
-.card-header-score-container {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  text-align: center;
-  background-image: linear-gradient(var(--violetBlue), var(--persianBlue));
+.card-img{
+ width: 100%;
+ height: 100%;
+ border-radius: 10px;
 }
-
-.card-header-accumulated-score {
-  font-size: 50px;
-  color: var(--white);
-  margin-block-start: 30px;
+.card-hover-effect{
+ position: absolute;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ border-radius: 10px;
+ background-color: var(--cyan);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ opacity: 0;
+ transition: .7s;
 }
-
-.card-header-total-score {
-  color: var(--lightLavenderScore);
-  font-weight: 700;
+.card-img-container:hover .card-hover-effect{
+ opacity: 1;
 }
-
-.card-header-feedback {
-  margin-top: 25px;
-  margin-bottom: 10px;
-  color: var(--white);
+.card-header{
+ color: var(--white);
+ font-size: 25px;
+ font-weight: 600;
+ margin-block-end: 15px;
+ cursor: pointer;
 }
-
-.card-header-feedback-description {
-  color: var(--paleBlue);
-  text-align: center;
-  margin-inline: 55px;
-  margin-block-end: 40px;
+.card-header:hover{
+ color: var(--cyanHeader);
 }
-
-.card-description {
-  background-color: var(--white);
-  width: 100%;
-  padding: 30px;
-  font-weight: 800;
+.card-description{
+ color: var(--softBlue);
+ font-weight: 400;
+ margin-block-end: 20px;
 }
-
-.card-description-title {
-  margin-block-end: 25px;
-  color: var(--darkGrayBlue);
-  font-weight: 800;
+.card-value-cotainer{
+ display: flex;
+ justify-content: space-between;
+ margin-block-end: 20px;
 }
-
-.card-description-item {
-  width: 100%;
-  height: 57px;
-  background-color: var(--card-item-bg);
-  display: flex;
-  justify-content: space-between;
-  margin-block-end: 15px;
-  border-radius: 10px;
+.card-value{
+ color: var(--cyan);
+ font-weight: 600;
 }
-
-.card-description-head-holder {
-  display: flex;
-  align-items: center;
+.card-value-img{
+ vertical-align: middle;
+ margin-inline-end: 5px;
 }
-
-.card-description-head-holder>img {
-  width: 20px;
-  margin-inline: 15px;
+.card-reminder{
+ color: var(--softBlue);
 }
-
-.card-description-item-name {
-  color: var(--card-item-name-clr);
+.card-reminder-img{
+ vertical-align: middle;
+ margin-inline-end: 5px;
 }
-
-.card-description-item-score {
-  display: flex;
-  align-items: center;
-  margin-inline-end: 15px;
+.card-profile-container{
+ display: flex;
+ align-items: center;
+ border-block-start: 1px solid var(--veryDarkBlueline);
+ margin-block-end: 5px;
+ padding-block-start: 15px;
 }
-
-.card-description-item-score .score {
-  font-weight: 700;
-  margin-inline-start: 8px;
-  color: var(--darkGrayBlueScore);
+.card-profile-img{
+ width: 35px;
+ height: 35px;
+ border-radius: 50%;
+ border: 1px solid var(--white);
 }
-
-.card-description-button {
-  display: block;
-  width: 100%;
-  height: 57px;
-  background-color: var(--darkGrayBlue);
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: var(--white);
+.card-profile-header{
+ font-size: 16px;
+ font-weight: 300;
+ color: var(--softBlue);
+ margin-inline-start: 20px;
 }
-
-.card-description-button:hover {
-  background-image: linear-gradient(var(--lightSlateBlue), var(--lightRoyalBlue));
+.card-profile-header-link{
+ text-decoration: none;
+ color: var(--white);
+ transition: .3s;
 }
-
-@media screen and (min-width: 778px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  .main-card-body {
-    max-width: 745px;
-    height: 505px;
-    flex-direction: row;
-    box-shadow: 1px 1px 30px  hsla(224, 30%, 27%, 0.4);  
-    border-radius: 25px;
-  }
-  
-  .card-header,.card-description {
-    border-radius: 25px;
-  }
-
-} 
+.card-profile-header-link:hover{
+ color: var(--cyanHeader);
+ font-weight: 400;
+}
+@media screen and (min-width: 778px){
+ .card-container{
+  width: 100vw;
+ }
+}
